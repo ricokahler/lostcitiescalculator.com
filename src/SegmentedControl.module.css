@@ -1,0 +1,40 @@
+.segmentedControl {
+  display: flex;
+  position: relative;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 4px;
+  border-color: var(--segmented-control-hint);
+}
+
+.input {
+  display: none;
+}
+
+.input:checked + .label {
+  color: white;
+}
+
+.label {
+  color: var(--segmented-control-text-inactive);
+  flex: 1 0 auto;
+  text-align: center;
+  font-weight: bold;
+  margin: 0 -3px;
+  z-index: 0;
+  padding: 0.25rem;
+  transition: all 250ms;
+}
+
+.floater {
+  position: absolute;
+  pointer-events: none;
+  height: calc(100% + 6px);
+  transition: all 250ms;
+  margin: -3px;
+  border-radius: 4px;
+  background: linear-gradient(
+    var(--segmented-control-primary),
+    var(--segmented-control-hue-shift)
+  );
+}

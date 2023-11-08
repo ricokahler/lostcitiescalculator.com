@@ -1,0 +1,18 @@
+.roundCalculator {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.total {
+  text-align: center;
+  font-weight: 900;
+  font-size: 3rem;
+  padding: 1rem;
+}
+
+.columns {
+  display: flex;
+  gap: 0.5rem;
+}
