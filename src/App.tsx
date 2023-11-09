@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RoundCalculator } from './RoundCalculator';
 import { GameState, RoundState, ranks, suits } from './types';
 import styles from './App.module.css';
@@ -41,7 +41,23 @@ const initialState: GameState = {
 };
 
 function App() {
-  const [state, setState] = useState(initialState);
+  const [state, setState] = useState(() => {
+    const savedGameState = localStorage.getItem('game_state');
+    if (!savedGameState) return initialState;
+    try {
+      return JSON.parse(savedGameState) as GameState;
+    } catch {
+      return initialState;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('game_state', JSON.stringify(state));
+    } catch {
+      // intentionally blank
+    }
+  }, [state]);
 
   const [player, setPlayer] = useState('Player 1');
   const [round, setRound] = useState('Round 1');
