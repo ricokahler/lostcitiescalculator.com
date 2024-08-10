@@ -213,6 +213,7 @@ function App() {
           className={styles.reset}
           onClick={() => {
             if (confirm('Are you sure you want to reset?')) {
+              setRound('Round 1');
               setState(initialState);
             }
           }}
