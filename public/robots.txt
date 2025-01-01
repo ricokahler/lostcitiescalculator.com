@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lostcitiescalculator.com/sitemap.xml

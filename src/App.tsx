@@ -4,6 +4,17 @@ import { RoundCalculator } from './RoundCalculator';
 import { GameState, RoundState, ranks, suits } from './types';
 import styles from './App.module.css';
 import { SegmentedControl } from './SegmentedControl';
+import { Helmet } from 'react-helmet-async';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Lost Cities Score Calculator',
+  applicationCategory: 'GameApplication',
+  operatingSystem: 'Any',
+  description:
+    'Online score calculator for the Lost Cities card game. Calculate points, track multiple rounds, and manage game scores easily.',
+};
 
 function calculateRoundScore(state: RoundState) {
   const total = suits
@@ -151,6 +162,12 @@ function App() {
 
   return (
     <div className={styles.app}>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+
       <header className={styles.header}>
         <div className={styles.emoji}>🏕️</div>
         <div>
