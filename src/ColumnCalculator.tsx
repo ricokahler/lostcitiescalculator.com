@@ -94,6 +94,7 @@ export function ColumnCalculator({
           const key = `${suit}-${value}` as ExpeditionCard;
           return (
             <button
+              key={key}
               className={classNames(styles.button, styles.expeditionCard, {
                 [styles.buttonActive]: expeditions[key],
               })}
